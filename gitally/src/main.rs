@@ -1,6 +1,6 @@
 extern crate colored; // not needed in Rust 2018
 
-// use colored::*;
+use colored::Colorize;
 use std::process::Command;
 
 
@@ -8,7 +8,7 @@ fn main() {
 
     // println!("{} {} !", "it".green(), "works".blue().bold());
     // println!("{} {} {}", "or use".cyan(), "any".italic().yellow(), "string type".cyan());
-    // println!("{}", "this is blue".blue());
+    println!("{}", "this is blue".blue());
     // println!("{}", "this is red".red());
     // println!("{}", "this is red on blue".red().on_blue());
     // println!("{}", "this is also red on blue".on_blue().red());
@@ -26,10 +26,14 @@ fn main() {
                         .output()
                         .expect("failed to execute process");
 
-    println!("status: {}", output.status);
+    println!("status: {}", &output.status);
+    println!("stdout: {}", String::from_utf8_lossy(&output.stdout).blue());
     println!("stdout: {}", String::from_utf8_lossy(&output.stdout));
     println!("stderr: {}", String::from_utf8_lossy(&output.stderr));
 
     assert!(output.status.success());
 
+    // print unicode emoji
+    let emoji = '\u{1F600}';
+    println!("{:?}", emoji);
 }
