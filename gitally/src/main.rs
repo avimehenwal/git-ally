@@ -36,4 +36,9 @@ fn main() {
     // print unicode emoji
     let emoji = '\u{1F600}';
     println!("{:?}", emoji);
+
+    // String
+    let primitive = "primitive string";
+    let growable = String::from("Heap string");
+    println!("{} - [{}], {} - [{}]", primitive, primitive.len(), growable, growable.len());
 }
