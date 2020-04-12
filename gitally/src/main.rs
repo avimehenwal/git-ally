@@ -42,4 +42,5 @@ fn main() {
     let mut growable = String::from("Heap string");
     growable.push_str("World");
     println!("{} - [{}], {} - [{}]", primitive, primitive.len(), growable, growable.len());
+    println!("Capacity: {}", growable.capacity());
 }
