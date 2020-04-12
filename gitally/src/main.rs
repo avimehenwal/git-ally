@@ -39,6 +39,7 @@ fn main() {
 
     // String
     let primitive = "primitive string";
-    let growable = String::from("Heap string");
+    let mut growable = String::from("Heap string");
+    growable.push_str("World");
     println!("{} - [{}], {} - [{}]", primitive, primitive.len(), growable, growable.len());
 }
